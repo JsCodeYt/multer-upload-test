@@ -20,6 +20,10 @@ const app = express()
 
 app.use("/upload", express.static(path.join(__dirname + "/upload")))
 
+app.get("/", (req, res) => {
+    res.send("ok")
+})
+
 
 app.post("/", upload.single("file"), (req, res) => {
     res.status(200).json({ message: "upload your file !" })
